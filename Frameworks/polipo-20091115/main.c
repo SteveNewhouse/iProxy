@@ -40,6 +40,14 @@ usage(char *argv0)
 
 extern ConfigVariablePtr configVariables;
 
+extern AtomPtr socksParentProxy;
+extern AtomPtr socksProxyHost;
+extern int socksProxyPort;
+extern AtomPtr socksProxyAddress;
+extern int socksProxyAddressIndex;
+extern AtomPtr socksUserName;
+extern AtomPtr socksProxyType;
+
 int
 polipo_main(int argc, char **argv)
 {
@@ -51,6 +59,13 @@ polipo_main(int argc, char **argv)
     configFile = NULL;
     pidFile = NULL;
     configVariables = NULL;
+    socksParentProxy = NULL;
+    socksProxyHost = NULL;
+    socksProxyPort = -1;
+    socksProxyAddress = NULL;
+    socksProxyAddressIndex = -1;
+    socksUserName = NULL;
+    socksProxyType = NULL;
 
     initAtoms();
     CONFIG_VARIABLE(daemonise, CONFIG_BOOLEAN, "Run as a daemon");
